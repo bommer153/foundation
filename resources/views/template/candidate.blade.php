@@ -1,5 +1,5 @@
 <div class="col-md-12">
-    <a href="{{ asset('storage/mrmstcu2023/'.$candidate->img) }}" data-lightbox="example-1">
+    <a href="{{ asset('image/mrmstcu2023/'.$candidate->img) }}" data-lightbox="example-1">
         <img class="thumnail" src="{{ asset('storage/mrmstcu2023/'.$candidate->img) }}"
             style='width:100%;box-shadow: 1px 1px 5px black;'>
     </a>
