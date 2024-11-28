@@ -6,6 +6,6 @@
                 style='border-radius:100px;'><span class="badge rounded-circle"
                 style='background:purple;position:absolute;top:55%;right:55%'>{{ $canListF->no }}</span>
         </a>
-    </div>
+    </div>    
     @endforeach
 </div>

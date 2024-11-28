@@ -5,8 +5,6 @@
     </a>
 </div>
 <div class="col-md-12">
-
-
     <div class="row">
         <div class="col-md-6">
             <br>
@@ -26,12 +24,10 @@
             </a>
         </div> 
         <div class="col-md-12">
-
             <h2 class=''>{{ $candidate->gender }}. {{ $candidate->name }}</h2>
             <h5 class="description">
                 <b>{{ $candidate->college }}</b>
             </h5>
-
         </div>
     </div>
 </div>

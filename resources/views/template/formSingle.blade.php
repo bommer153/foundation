@@ -14,9 +14,6 @@
 
 
 <div class="card-body">
-
-
-
     <div class="row">
         <style>
         p {
@@ -24,9 +21,6 @@
         }
         </style>
         @foreach($category as $category)
-
-
-
         @if( $category->status == '1')
             @php
                 $color = 'bg-success';
@@ -51,7 +45,6 @@
                     {{ $category->category }} - <b>{{$category->total}} </b> pts
                     <span class='float-right badge badge-pill badge-success' style='cursor:pointer'
                         id='shower{{$category->id}}'>Hide</span>
-
                 </h4>
                 <div class="card-body" id='body{{$category->id}}' style='{{ $border }}'>
 
@@ -80,9 +73,6 @@
                                 value='{{ $nscore }}' {{$disable}}>
                         </div>
                         <div class="col-md-2">
-
-
-
                             <h2 class="title" id='score{{$category->id}}'>{{ $nscore }}</h2>
                         </div>
                         <div class="col-md-2">

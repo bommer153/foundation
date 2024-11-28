@@ -14,10 +14,7 @@
                                         </a>
                                     </div>
                                     <div class="col-md-6">
-
-
                                         <div class="row">
-
                                             <div class="col-md-12">
 
                                                 <h2 class=''>{{ $candidate[0]->gender }}. {{ $candidate[0]->name }}</h2>
