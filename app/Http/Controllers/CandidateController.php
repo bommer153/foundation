@@ -123,4 +123,55 @@ class CandidateController extends Controller
 
         return view('template.dual', compact('candidateList'));
     }
+
+    public function candidate (){
+        return view('candidate.candidate');
+    }
+
+    public function candidateList (){
+        $candidates = candidate::get();
+        return view('template.candidateList', compact('candidates'));
+    }
+    
+    public function candidateShow ($id){
+        $candidate = candidate::findOrFail($id);
+        return view('candidate.show', compact('candidate'));
+    }
+
+    public function candidateUpdate($id,Request $request){
+        $validate = $request->validate([
+            'name' => 'required|max:255',
+            'gender' => 'required',
+            'no' => 'required',
+            'college' => 'required',
+            'ordered' => 'required',
+        ]);
+
+        candidate::find($id)->update([
+            'name' => $request->name,
+            'gender' => $request->gender,
+            'college' => $request->college,
+            'no' => $request->no,
+            'ordered' => $request->ordered,
+        ]);
+
+        return redirect()->back()->with('success','Details Updated');
+    }
+
+    public function candidateImage($id,Request $request){
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validate file
+        ]);
+
+        $destinationPath = public_path('images/mrmstcu');
+        $file = $request->file('image');
+        $fileName = time() . '.' . $file->getClientOriginalExtension();
+        $file->move($destinationPath, $fileName);
+
+        candidate::find($id)->update([
+            'img' => $fileName,           
+        ]);
+
+        return redirect()->back()->with('success','Image Updated');
+    }
 }

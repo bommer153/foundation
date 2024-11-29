@@ -6,10 +6,10 @@
                                 <br><br><br><br>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <a href="{{ asset('image/mrmstcu2023/'.$candidate[0]->img) }}"
+                                        <a href="{{ asset('images/mrmstcu/'.$candidate[0]->img) }}"
                                             data-lightbox="example-1">
                                             <img class="thumnail"
-                                                src="{{ asset('image/mrmstcu2023/'.$candidate[0]->img) }}"
+                                                src="{{ asset('images/mrmstcu/'.$candidate[0]->img) }}"
                                                 style='width:100%;box-shadow: 1px 1px 5px black;'>
                                         </a>
                                     </div>
@@ -189,10 +189,10 @@
                                 <br><br><br><br>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <a href="{{ asset('image/mrmstcu2023/'.$candidate[1]->img) }}"
+                                        <a href="{{ asset('images/mrmstcu/'.$candidate[1]->img) }}"
                                             data-lightbox="example-1">
                                             <img class="thumnail"
-                                                src="{{ asset('image/mrmstcu2023/'.$candidate[1]->img) }}"
+                                                src="{{ asset('images/mrmstcu/'.$candidate[1]->img) }}"
                                                 style='width:100%;box-shadow: 1px 1px 5px black;'>
                                         </a>
                                     </div>

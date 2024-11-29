@@ -9,6 +9,8 @@ class candidate extends Model
 {
     use HasFactory;
 
+    
+    protected $guarded = [];
     public function score()
     {
         return $this->hasMany(score::class, 'candidate', 'id');

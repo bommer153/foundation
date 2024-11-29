@@ -36,6 +36,14 @@ Route::group(['middleware' => 'isAdmin'], function () {
 	Route::post('score/r2', 'App\Http\Controllers\ScoreController@r2')->name('score.r2');
 	Route::post('score/r1', 'App\Http\Controllers\ScoreController@r1')->name('score.r1');
 
+
+	Route::get('candidates', 'App\Http\Controllers\CandidateController@candidate')->name('candidate.index');
+	Route::get('candidates/{id}', 'App\Http\Controllers\CandidateController@candidateShow')->name('candidate.show');
+	Route::get('api/candidateList', 'App\Http\Controllers\CandidateController@candidateList')->name('candidate.list');
+	Route::put('candidates/{id}', 'App\Http\Controllers\CandidateController@candidateUpdate')->name('candidate.update');
+	Route::put('candidates/image/{id}', 'App\Http\Controllers\CandidateController@candidateImage')->name('candidate.image');
+
+
 	Route::post('dual/change', 'App\Http\Controllers\ScoreController@dualChange')->name('dual.change');
 	Route::post('cat/change', 'App\Http\Controllers\ScoreController@catChange')->name('cat.change');
 	Route::get('{page}', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PageController@index']);
