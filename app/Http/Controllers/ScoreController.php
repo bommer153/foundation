@@ -127,13 +127,13 @@ class ScoreController extends Controller
         }
     
        
-        for($x=0;$x<5;$x++){
+        for($x=0;$x<3;$x++){
             candidate::where('id','=',$maleTotal[$x][0]['candidate'])->update(['active' => '2']);
         }
 
         //dd($femaleTotal);
 
-        for($xx=0;$xx<5;$xx++){
+        for($xx=0;$xx<3;$xx++){
             
             candidate::where('id','=',$femaleTotal[$xx][0]['candidate'])->update(['active' => '2']);
         }
@@ -262,12 +262,13 @@ class ScoreController extends Controller
         //dd($scorerms);
 
         foreach($candidateLM as $canlm){
-            $scoreLM =  score::where('candidate','=',$canlm->id)->whereBetween('category',['6','7'])->sum('score');
-            array_push($scorelms, $scoreLM);  
+            $scoreLM =  score::where('candidate','=',$canlm->id)->whereBetween('category',['6','8'])->sum('score');            
+            array_push($scorelms, $scoreLM); 
+            //dd($scorelms); 
         }
 
         foreach($candidateLF as $canlf){
-            $scoreLF =  score::where('candidate','=',$canlf->id)->whereBetween('category',['6','7'])->sum('score');
+            $scoreLF =  score::where('candidate','=',$canlf->id)->whereBetween('category',['6','8'])->sum('score');
             array_push($scorelfs, $scoreLF);  
         }
 
@@ -400,7 +401,9 @@ class ScoreController extends Controller
 
         foreach($candidateLM as $canlm){
             $scoreLM =  score::where('candidate','=',$canlm->id)->whereBetween('category',['6','7'])->sum('score');
+            dd($canlm[0]);
             array_push($scorelms, $scoreLM);  
+
         }
 
         foreach($candidateLF as $canlf){

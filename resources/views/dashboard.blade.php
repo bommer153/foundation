@@ -44,8 +44,8 @@
                         <select class='form-control' name='category'>
                             <option value='0'>----CATEGORY----</option>
                             <option value='1'>Thematic Wear</option>
-                            <option value='2'>Swim/Summer Wear</option>
-                            <option value='3'>Evening Wear</option>
+                            <option value='2'>CASUAL WEAR</option>
+                            <option value='3'>Formal Wear and Long Gown competition</option>
                             <option value='4'>Beauty of Face, Poise, Bearing and Personality</option>
                         </select>
                         <button class='btn btn-primary btn-fill'>Change</button>                    
@@ -53,7 +53,7 @@
             </div>
 
         </div>
-
+                    <!-- thematic -->
                     <div class="row">
                         <div class="col-md-6">
                             <div class="card ">
@@ -119,12 +119,12 @@
                         </div>           
                     </div>
 
-                    <!-- Thematic -->
+                    <!-- Casual -->
                     <div class="row">
                         <div class="col-md-6">
                             <div class="card ">
                                 <div class="card-header ">
-                                    <h4>Summer Wear Male </i></h4>
+                                    <h4>Casual Wear Male </i></h4>
                                 </div>
                                 <div class="card-body ">
                                     <table class='table' id='table'>
@@ -153,7 +153,7 @@
                         <div class="col-md-6">
                             <div class="card ">
                                 <div class="card-header ">
-                                    <h4>Summer Wear Female </i></h4>
+                                    <h4>Casual Wear Female </i></h4>
                                 </div>
                                 <div class="card-body ">
                                     <table class='table' id='table'>
@@ -178,7 +178,11 @@
                                         </table>       
                                 </div>                                
                             </div>
-                        </div>               
+                        </div>  
+                        <div class="col-md-6">
+                            <h5>Ferdinand Rubio</h5>
+                            <h6>MIS, Director</h6>
+                        </div>                
                     </div>
 
                      <!-- Formal -->
@@ -252,7 +256,7 @@
                         <div class="col-md-6">
                             <div class="card ">
                                 <div class="card-header ">
-                                    <h4>Beauty of Face, Poise, Bearing and Persinality Male </i></h4>
+                                    <h4>Casual Interview Male </i></h4>
                                 </div>
                                 <div class="card-body ">
                                     <table class='table' id='table'>
@@ -281,7 +285,7 @@
                         <div class="col-md-6">
                             <div class="card ">
                                 <div class="card-header ">
-                                    <h4>Beauty of Face, Poise, Bearing and Persinality Female </i></h4>
+                                    <h4>Casual Interview Female </i></h4>
                                 </div>
                                 <div class="card-body ">
                                     <table class='table' id='table'>
@@ -456,7 +460,11 @@
                                         </table>       
                                 </div>                                
                             </div>
-                        </div>               
+                        </div> 
+                        <div class="col-md-6">
+                            <h5>Ferdinand Rubio</h5>
+                            <h6>MIS, Director</h6>
+                        </div>                 
                     </div>
 
 
@@ -465,7 +473,7 @@
                         <div class="col-md-6">
                             <div class="card ">
                                 <div class="card-header ">
-                                    <h4>Round 2 (QnA) Male </i></h4>
+                                    <h4>Round 2 (Question and Answer) Male </i></h4>
                                 </div>
                                 <div class="card-body ">
                                     <table class='table' id='table'>
@@ -494,7 +502,7 @@
                         <div class="col-md-6">
                             <div class="card ">
                                 <div class="card-header ">
-                                    <h4>Round 2 (QnA) Female </i></h4>
+                                    <h4>Round 2 (Question and Answer) Female </i></h4>
                                 </div>
                                 <div class="card-body ">
                                     <table class='table' id='table'>

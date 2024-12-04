@@ -8,8 +8,6 @@
         </a>
     </div>
     @endforeach
-</div><br>
-<div class="row">
     @foreach ($candidateListF as $canListF)
     <div class="col-md-1">
         <a href="{{route('home.judge',['id'=>$canListF->ordered])}}">
@@ -19,4 +17,7 @@
         </a>
     </div>
     @endforeach
+</div><br>
+<div class="row">
+   
 </div>

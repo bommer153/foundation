@@ -1,7 +1,9 @@
 <div class="col-md-12">
+
     <a href="{{ asset('images/mrmstcu/'.$candidate->img) }}" data-lightbox="example-1">
         <img class="thumnail" src="{{ asset('images/mrmstcu/'.$candidate->img) }}"
             style='width:100%;box-shadow: 1px 1px 5px black;'>
+            
     </a>
 </div>
 <div class="col-md-12">
@@ -24,10 +26,10 @@
             </a>
         </div> 
         <div class="col-md-12">
-            <h2 class=''>{{ $candidate->gender }}. {{ $candidate->name }}</h2>
+            <h2 class=''>{{ $candidate->gender }}. {{ $candidate->name }} </h2>
             <h5 class="description">
                 <b>{{ $candidate->college }}</b>
-            </h5>
+            </h5>         
         </div>
     </div>
 </div>

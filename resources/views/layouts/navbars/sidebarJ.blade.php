@@ -6,7 +6,7 @@ Tip 2: you can also add an image using data-image tag
 -->
     <div class="sidebar-wrapper">
         <div class="logo">
-        <img class='avatar' src="{{asset('light-bootstrap')}}/img/candidate/pageant2023logo.png" style='position:relative;left:-15px;height:190px;'>
+        <img class='avatar' src="{{asset('light-bootstrap')}}/img/lugo.png" style='position:relative;left:50px;height:190px;'>
             <a href="{{ route('home.judgex') }}" class="simple-text">
              <hr>
              {{ auth()->user()->name; }}

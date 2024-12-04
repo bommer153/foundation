@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-7 col-md-8">
-                        <h1 class="text-white text-center">TCU FOUNDATION 2024 v1.1.3</h1>
+                        <h1 class="text-white text-center">TCU FOUNDATION 2024 v1.1.4</h1>
                     </div>
                 </div>
             </div>

@@ -60,16 +60,18 @@
 
                             @if( $category1->status == '1')
                             @php
-                            $color = 'bg-success';
-                            $border = 'border:1px solid green;';
-                            $col = 'col-md-12';
+                                $color = 'bg-success';
+                                $border = 'border:1px solid green;';
+                                $col = 'col-md-12';
+                                $display = '';
                             @endphp
 
                             @else
                             @php
-                            $color = 'bg-dark';
-                            $border = 'border:1px solid';
-                            $col = 'col-md-6';
+                                $color = 'bg-dark';
+                                $border = 'border:1px solid';
+                                $col = 'col-md-6';
+                                $display = 'display:none';
                             @endphp
                             @endif
 
@@ -79,9 +81,9 @@
                                     <h4 style='font-size:15px;' class='card-header {{ $color }} text-white'>
                                         {{ $category1->category }} - <b>{{$category1->total}} pts </b>
                                         <span class='float-right badge badge-pill badge-success' style='cursor:pointer'
-                                            id='shower{{$category1->id}}'>Hide</span>
+                                            id='shower{{$category1->id}}'>Show</span>
                                     </h4>
-                                    <div class="card-body" id='body{{$category1->id}}' style='{{ $border }}'>
+                                    <div class="card-body" id='body{{$category1->id}}' style='{{ $border }};{{ $display }}'>
                                         <div class="row">
                                             <div class="col-md-8">
 
@@ -90,18 +92,21 @@
 
                                                 <p>{{$category1->criteria1}} - <b>{{$category1->pts1}} pts </b></p>
                                                 <p>{{$category1->criteria2}} - <b>{{$category1->pts2}} pts </b></p>
+                                                    @if($category1->id == '4')
+                                                        <p>{{$category1->criteria3}} - <b>{{$category1->pts3}} pts </b></p>
+                                                    @endif
                                                 @endif
 
                                                 @if(empty($score[$category1->id-1][0]->score))
-                                                @php $nscore = 0;
-                                                $disable = '';
-                                                $check = '0';
-                                                @endphp
+                                                    @php $nscore = 0;
+                                                    $disable = '';
+                                                    $check = '0';
+                                                    @endphp
                                                 @else
-                                                @php $nscore = $score[$category1->id-1][0]->score;
-                                                $disable = 'disabled';
-                                                $check = '1';
-                                                @endphp
+                                                    @php $nscore = $score[$category1->id-1][0]->score;
+                                                    $disable = 'disabled';
+                                                    $check = '1';
+                                                    @endphp
                                                 @endif
                                                 <input type="range" min='1' max='{{ $category1->total }}'
                                                     class="form-range" name='jscore{{$category1->id}}'
@@ -109,9 +114,6 @@
                                                     value='{{ $nscore }}' {{$disable}}>
                                             </div>
                                             <div class="col-md-2">
-
-
-
                                                 <h2 class="title" id='score{{$category1->id}}'>{{ $nscore }}</h2>
 
                                                 <br>
@@ -221,16 +223,18 @@
                             @foreach($category as $category2)
                             @if( $category2->status == '1')
                             @php
-                            $color = 'bg-success';
-                            $border = 'border:1px solid green;';
-                            $col = 'col-md-12';
+                                $color = 'bg-success';
+                                $border = 'border:1px solid green;';
+                                $col = 'col-md-12';
+                                $display = '';
                             @endphp
 
                             @else
                             @php
-                            $color = 'bg-dark';
-                            $border = 'border:1px solid';
-                            $col = 'col-md-6';
+                                $color = 'bg-dark';
+                                $border = 'border:1px solid';
+                                $col = 'col-md-6';
+                                $display = 'display:none';
                             @endphp
                             @endif
 
@@ -240,15 +244,19 @@
                                     <h4 style='font-size:15px;' class='card-header {{ $color }} text-white'>
                                         {{ $category2->category }} - {{$category2->total}} pts
                                         <span class='float-right badge badge-pill badge-success' style='cursor:pointer'
-                                            id='shower2{{$category2->id}}'>Hide</span>
+                                            id='shower2{{$category2->id}}'>Show</span>
                                     </h4>
-                                    <div class="card-body" id='body2{{$category2->id}}' style='{{ $border }}'>
+                                    <div class="card-body" id='body2{{$category2->id}}' style='{{ $border }};{{$display}}'>
                                         <div class="row">
                                             <div class="col-md-8">
 
                                                 @if($round == 1)
-                                                <p>{{$category2->criteria1}} - {{$category2->pts1}} pts</p>
-                                                <p>{{$category2->criteria2}} - {{$category2->pts2}} pts</p>
+                                                    <p>{{$category2->criteria1}} - {{$category2->pts1}} pts</p>
+                                                    <p>{{$category2->criteria2}} - {{$category2->pts2}} pts</p>
+                                                    
+                                                    @if($category2->id == '4')
+                                                        <p>{{$category1->criteria3}} - <b>{{$category1->pts3}} pts </b></p>
+                                                    @endif
                                                 @endif
 
                                                 @if(empty($score[$category2->id-1+7][0]->score))

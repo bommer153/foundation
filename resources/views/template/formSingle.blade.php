@@ -26,6 +26,7 @@
                 $color = 'bg-success';
                 $border = 'border:1px solid green;';
                 $col = 'col-md-12';
+                $display = '';
             @endphp
 
         @else
@@ -33,6 +34,7 @@
                 $color = 'bg-dark';
                 $border = 'border:1px solid';
                 $col = 'col-md-6';
+                $display = 'display:none';
             @endphp
         @endif
 
@@ -44,28 +46,31 @@
                 <h4 style='font-size:14px;' class='card-header {{ $color }} text-white'>
                     {{ $category->category }} - <b>{{$category->total}} </b> pts
                     <span class='float-right badge badge-pill badge-success' style='cursor:pointer'
-                        id='shower{{$category->id}}'>Hide</span>
+                        id='shower{{$category->id}}'>Show</span>
                 </h4>
-                <div class="card-body" id='body{{$category->id}}' style='{{ $border }}'>
+                <div class="card-body" id='body{{$category->id}}' style='{{ $border }};{{ $display }}'>
 
                     <div class="row">
 
                         <div class="col-md-7">
 
                             @if($round == 1)
-                            <p>{{$category->criteria1}} - <b>{{$category->pts1}} </b>pts</p>
-                            <p>{{$category->criteria2}} - <b>{{$category->pts2}} </b>pts</p>
+                                <p>{{$category->criteria1}} - <b>{{$category->pts1}} </b>pts</p>
+                                <p>{{$category->criteria2}} - <b>{{$category->pts2}} </b>pts</p>
+                                @if($category->id == '4')
+                                    <p>{{$category->criteria3}} - <b>{{$category->pts3}} </b>pts</p>
+                                @endif
                             @endif
 
                             @if(empty($score[$category->id-1][0]->score))
                                 @php $nscore = 0;
-                                $disable = '';
-                                $check = '0';
+                                    $disable = '';
+                                    $check = '0';
                                 @endphp
                             @else
                                 @php $nscore = $score[$category->id-1][0]->score;
-                                $disable = 'disabled';
-                                $check = '1';
+                                    $disable = 'disabled';
+                                    $check = '1';
                                 @endphp
                             @endif
                             <input type="range" min='1' max='{{ $category->total }}' class="form-range"
@@ -125,8 +130,7 @@
                             $('#save{{$category->id}}').slideUp();
                             $('#successCheck{{$category->id}}').slideDown();
 
-                            $('#customRange{{$category->id}}').prop("disabled",
-                                true);
+                            $('#customRange{{$category->id}}').prop("disabled", true);
                         }
                     })
                 } else {
