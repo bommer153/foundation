@@ -281,13 +281,13 @@ class ScoreController extends Controller
         //dd($score8fs);
 
         foreach($candidateLM as $canlm){
-            $scoreLM =  score::where('candidate','=',$canlm->id)->whereBetween('category',['6','8'])->sum('score');            
+            $scoreLM =  score::where('candidate','=',$canlm->id)->whereBetween('category',['6','7'])->sum('score');            
             array_push($scorelms, $scoreLM); 
             //dd($scorelms); 
         }
 
         foreach($candidateLF as $canlf){
-            $scoreLF =  score::where('candidate','=',$canlf->id)->whereBetween('category',['6','8'])->sum('score');
+            $scoreLF =  score::where('candidate','=',$canlf->id)->whereBetween('category',['6','7'])->sum('score');
             array_push($scorelfs, $scoreLF);  
         }
 
