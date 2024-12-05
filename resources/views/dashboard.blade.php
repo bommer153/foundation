@@ -407,7 +407,7 @@
                                             @endphp
                                             <tr>
                                                         @php 
-                                                            $s = ($scoreRM[$i]/$judgeCount) + $scoreT;
+                                                            $s = ($scoreRM[$i]/$judgeCount) + $scoreT + $score8F[$i];
                                                            
                                                         @endphp
                                                 <td>{{ $candidateRM->no }}</td>
@@ -445,7 +445,7 @@
                                                 @endphp
                                                 <tr>
                                                         @php 
-                                                            $s = ($scoreRF[$i]/$judgeCount) + $scoreT;
+                                                            $s = ($scoreRF[$i]/$judgeCount) + $scoreT + $score8F[$i];
                                                             
                                                         @endphp
 

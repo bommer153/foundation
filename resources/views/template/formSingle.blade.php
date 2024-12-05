@@ -34,7 +34,12 @@
                 $color = 'bg-dark';
                 $border = 'border:1px solid';
                 $col = 'col-md-6';
-                $display = 'display:none';
+                    @if($category->id == '6' && $category->id == '7')
+                        $display = '';
+                    @else
+                        $display = 'display:none';
+                    @endif
+                
             @endphp
         @endif
 
