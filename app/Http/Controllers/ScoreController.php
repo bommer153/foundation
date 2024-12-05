@@ -52,6 +52,7 @@ class ScoreController extends Controller
                 $score = 1;
             }
             
+            
             if(scoreMode::first()->mode != '0'){
                 if($category == '4'){
                     $percent = $score * 0.15;
@@ -61,6 +62,7 @@ class ScoreController extends Controller
                     $percent = $score * 0.20;
                 }
             }else{
+                $score = $score;
                 $percent = $score;
             }
            
