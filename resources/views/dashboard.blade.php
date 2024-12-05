@@ -44,9 +44,9 @@
                         <select class='form-control' name='category'>
                             <option value='0'>----CATEGORY----</option>
                             <option value='1'>Thematic Wear</option>
-                            <option value='2'>CASUAL WEAR</option>
+                            <option value='2'>Casual Wear</option>
                             <option value='3'>Formal Wear and Long Gown competition</option>
-                            <option value='4'>Beauty of Face, Poise, Bearing and Personality</option>
+                            <option value='4'>Casual Interview</option>
                         </select>
                         <button class='btn btn-primary btn-fill'>Change</button>                    
                     </form>
@@ -74,7 +74,7 @@
                                             <tr>
                                                 <td>{{ $candidate1M->no }}</td>
                                                 <td>{{ $candidate1M->name }}</td>
-                                                <td>{{ $candidate1M->college }}</td>
+                                                <td>{{ $candidate1M->cA }}</td>
                                                 <td>{{ number_format($score1M[$i]/$judgeCount,2,'.','') }}</td>
                                             </tr>
                                         @php $i++; @endphp
@@ -103,7 +103,7 @@
                                                 <tr>
                                                     <td>{{ $candidate1F->no }}</td>
                                                     <td>{{ $candidate1F->name }}</td>
-                                                    <td>{{ $candidate1F->college }}</td>
+                                                    <td>{{ $candidate1F->cA }}</td>
                                                     <td>{{ number_format($score1F[$i]/$judgeCount,2,'.','') }}</td>
                                                 </tr>
                                             @php $i++; @endphp
@@ -140,7 +140,7 @@
                                             <tr>
                                                 <td>{{ $candidate2M->no }}</td>
                                                 <td>{{ $candidate2M->name }}</td>
-                                                <td>{{ $candidate2M->college }}</td>
+                                                <td>{{ $candidate2M->cA }}</td>
                                                 <td>{{ number_format($score2M[$i]/$judgeCount,2,'.','') }}</td>
                                             </tr>
                                         @php $i++; @endphp
@@ -169,7 +169,7 @@
                                                 <tr>
                                                     <td>{{ $candidate2F->no }}</td>
                                                     <td>{{ $candidate2F->name }}</td>
-                                                    <td>{{ $candidate2F->college }}</td>
+                                                    <td>{{ $candidate2F->cA }}</td>
                                                     <td>{{ number_format($score2F[$i]/$judgeCount,2,'.','') }}</td>
                                                 </tr>
                                             @php $i++; @endphp
@@ -206,7 +206,7 @@
                                             <tr>
                                                 <td>{{ $candidate3M->no }}</td>
                                                 <td>{{ $candidate3M->name }}</td>
-                                                <td>{{ $candidate3M->college }}</td>
+                                                <td>{{ $candidate3M->cA }}</td>
                                                 <td>{{ number_format($score3M[$i]/$judgeCount,2,'.','') }}</td>
                                             </tr>
                                         @php $i++; @endphp
@@ -235,7 +235,7 @@
                                                 <tr>
                                                     <td>{{ $candidate3F->no }}</td>
                                                     <td>{{ $candidate3F->name }}</td>
-                                                    <td>{{ $candidate3F->college }}</td>
+                                                    <td>{{ $candidate3F->cA }}</td>
                                                     <td>{{ number_format($score3F[$i]/$judgeCount,2,'.','') }}</td>
                                                 </tr>
                                             @php $i++; @endphp
@@ -272,8 +272,8 @@
                                             <tr>
                                                 <td>{{ $candidate4M->no }}</td>
                                                 <td>{{ $candidate4M->name }}</td>
-                                                <td>{{ $candidate4M->college }}</td>
-                                                <td>{{ number_format($score4M[$i]/$judgeCount,2,'.','') }}</td>
+                                                <td>{{ $candidate4M->cA }}</td>
+                                                <td>{{ number_format($score4M[$i]/$judgeCount,2,'.','') + $score8M[$i] }}</td>
                                             </tr>
                                         @php $i++; @endphp
                                         @endforeach
@@ -301,8 +301,8 @@
                                                 <tr>
                                                     <td>{{ $candidate4F->no }}</td>
                                                     <td>{{ $candidate4F->name }}</td>
-                                                    <td>{{ $candidate4F->college }}</td>
-                                                    <td>{{ number_format($score4F[$i]/$judgeCount,2,'.','') }}</td>
+                                                    <td>{{ $candidate4F->cA }}</td>
+                                                    <td>{{ number_format($score4F[$i]/$judgeCount,2,'.','') + $score8F[$i]}}</td>
                                                 </tr>
                                             @php $i++; @endphp
                                             @endforeach
@@ -340,7 +340,7 @@
                                             <tr>
                                                 <td>{{ $candidate5M->no }}</td>
                                                 <td>{{ $candidate5M->name }}</td>
-                                                <td>{{ $candidate5M->college }}</td>
+                                                <td>{{ $candidate5M->cA }}</td>
                                                 <td>{{ number_format($score5M[$i],2,'.','') }}</td>
                                             </tr>
                                         @php $i++; @endphp
@@ -369,7 +369,7 @@
                                                 <tr>
                                                     <td>{{ $candidate5F->no }}</td>
                                                     <td>{{ $candidate5F->name }}</td>
-                                                    <td>{{ $candidate5F->college }}</td>
+                                                    <td>{{ $candidate5F->cA }}</td>
                                                     <td>{{ number_format($score5F[$i],2,'.','') }}</td>
                                                 </tr>
                                             @php $i++; @endphp
@@ -402,8 +402,8 @@
                                             @php 
                                                $scoreT = \App\Models\score::where('candidate','=',$candidateRM->id)->where('category','=','5')->where('judge','=','1')->get(); 
                                                
-                                               $scoreT = 0;
-                                               //$scoreT = $scoreT[0]->score;
+                                               //$scoreT = 0;
+                                               $scoreT = $scoreT[0]->score;
                                             @endphp
                                             <tr>
                                                         @php 
@@ -412,7 +412,7 @@
                                                         @endphp
                                                 <td>{{ $candidateRM->no }}</td>
                                                 <td>{{ $candidateRM->name }}</td>
-                                                <td>{{ $candidateRM->college }}</td>
+                                                <td>{{ $candidateRM->cA }}</td>
                                                 <td>{{ number_format($s ,2,'.','') }}</td>
                                             </tr>
                                         @php $i++; @endphp
@@ -439,9 +439,9 @@
                                             <tbody>
                                             @foreach ($candidateF as $candidateRF)
                                                 @php 
-                                                    //$scoreT = \App\Models\score::where('candidate','=',$candidateRF->id)->where('category','=','5')->where('judge','=','1')->get(); 
-                                                    $scoreT = 0;
-                                                    //$scoreT = $scoreT[0]->score;
+                                                    $scoreT = \App\Models\score::where('candidate','=',$candidateRF->id)->where('category','=','5')->where('judge','=','1')->get(); 
+                                                    //$scoreT = 0;
+                                                    $scoreT = $scoreT[0]->score;
                                                 @endphp
                                                 <tr>
                                                         @php 
@@ -451,7 +451,7 @@
 
                                                     <td>{{ $candidateRF->no }}</td>
                                                     <td>{{ $candidateRF->name }}</td>
-                                                    <td>{{ $candidateRF->college }}</td>
+                                                    <td>{{ $candidateRF->cA }}</td>
                                                     <td>{{ number_format($s,2,'.','') }}</td>
                                                 </tr>
                                             @php $i++; @endphp
@@ -489,7 +489,7 @@
                                             <tr>
                                                 <td>{{ $candidateLM->no }}</td>
                                                 <td>{{ $candidateLM->name }}</td>
-                                                <td>{{ $candidateLM->college }}</td>
+                                                <td>{{ $candidateLM->cA }}</td>
                                                 <td>{{ number_format($scoreLM[$i]/$judgeCount,2,'.','') }}</td>
                                             </tr>
                                         @php $i++; @endphp
@@ -518,7 +518,7 @@
                                                 <tr>
                                                     <td>{{ $candidateLF->no }}</td>
                                                     <td>{{ $candidateLF->name }}</td>
-                                                    <td>{{ $candidateLF->college }}</td>
+                                                    <td>{{ $candidateLF->cA }}</td>
                                                     <td>{{ number_format($scoreLF[$i]/$judgeCount,2,'.','') }}</td>
                                                 </tr>
                                             @php $i++; @endphp

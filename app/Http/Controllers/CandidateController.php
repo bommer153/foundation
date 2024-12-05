@@ -23,7 +23,7 @@ class CandidateController extends Controller
 
         $round = round::first()->round;
        
-
+        
         $previous = candidate::where('ordered','<',$id)->where('active','=',$round)->max('ordered');
         $next = candidate::where('ordered','>',$id)->where('active','=',$round)->min('ordered');
         $max = candidate::latest('ordered')->where('active','=',$round)->first();
@@ -68,9 +68,9 @@ class CandidateController extends Controller
         $score5  = score::where('category','5')->where('candidate',$nid)->where('judge','1')->get();
         $score6  = score::where('category','6')->where('candidate',$nid)->where('judge',$judge)->get();
         $score7  = score::where('category','7')->where('candidate',$nid)->where('judge',$judge)->get();
-        $score8  = score::where('category','8')->where('candidate',$nid)->where('judge',$judge)->get();
+        //$score8  = score::where('category','8')->where('candidate',$nid)->where('judge',$judge)->get();
         
-        $score = array($score1,$score2,$score3,$score4,$score5,$score6,$score7,$score8);
+        $score = array($score1,$score2,$score3,$score4,$score5,$score6,$score7);
 
         return view('template.formSingle', compact('score','category','candidate','round'));
     }
@@ -93,9 +93,9 @@ class CandidateController extends Controller
             $score5  = score::where('category','5')->where('candidate',$can->id)->where('judge','1')->get();
             $score6  = score::where('category','6')->where('candidate',$can->id)->where('judge',$judge)->get();
             $score7  = score::where('category','7')->where('candidate',$can->id)->where('judge',$judge)->get();
-            $score8  = score::where('category','8')->where('candidate',$can->id)->where('judge',$judge)->get();
+            //$score8  = score::where('category','8')->where('candidate',$can->id)->where('judge',$judge)->get();
             
-            array_push($score,$score1,$score2,$score3,$score4,$score5,$score6,$score7,$score8);
+            array_push($score,$score1,$score2,$score3,$score4,$score5,$score6,$score7);
            
         }
         //dd($score);

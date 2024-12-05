@@ -50,12 +50,20 @@ class ScoreController extends Controller
             if($score == 0){
                 $score = 1;
             }
-            
+//
+            //if($category == '4'){
+            //    $percent = $score * 0.15;
+            //}else if ($category == '6' && $category == '7'){
+            //    $percent = $score * 0.50;            
+            //}else{
+            //    $percent = $score * 0.20;
+            //}
             score::insert([
                 'score' => $score,
                 'category' => $category,
                 'judge' => $judge,
                 'candidate' => $id,
+                'percentage' => $score,
             ]);
 
             $data = "Hello";
@@ -203,6 +211,9 @@ class ScoreController extends Controller
         $score5ms = array(); 
         $score5fs = array(); 
 
+        $score8ms = array(); 
+        $score8fs = array(); 
+
         $scorerms = array(); 
         $scorerfs = array(); 
 
@@ -225,6 +236,9 @@ class ScoreController extends Controller
 
             $score5M = score::where('candidate','=',$can->id)->where('category','=','5')->sum('score');
             array_push($score5ms, $score5M);
+
+            $score8M = score::where('candidate','=',$can->id)->where('category','=','8')->first()->score;
+            array_push($score8ms, $score8M);
 
             $scoreRM =  score::where('candidate','=',$can->id)->whereBetween('category',['1','5'])->sum('score');
 
@@ -251,6 +265,10 @@ class ScoreController extends Controller
             $score5F = score::where('candidate','=',$canf->id)->where('category','=','5')->sum('score');
             array_push($score5fs, $score5F);
 
+            $score8F = score::where('candidate','=',$canf->id)->where('category','=','8')->first()->score;
+            array_push($score8fs, $score8F);  
+            
+            
             $scoreRF =  score::where('candidate','=',$canf->id)->whereBetween('category',['1','5'])->sum('score');
 
             $roundoneTotalfemale = $score1F + $score2F + $score3F + $score4F;
@@ -258,8 +276,9 @@ class ScoreController extends Controller
 
             
         }
+       
 
-        //dd($scorerms);
+        //dd($score8fs);
 
         foreach($candidateLM as $canlm){
             $scoreLM =  score::where('candidate','=',$canlm->id)->whereBetween('category',['6','8'])->sum('score');            
@@ -302,6 +321,9 @@ class ScoreController extends Controller
 
                 'score5M' => $score5ms,
                 'score5F' => $score5fs,
+
+                'score8M' => $score8ms,
+                'score8F' => $score8fs,
 
                 'scoreRM' => $scorerms,
                 'scoreRF' => $scorerfs,
@@ -369,7 +391,7 @@ class ScoreController extends Controller
             //array_push($scorerms, $scoreRM);  
 
             $roundoneTotalmale = $score1M + $score2M + $score3M + $score4M;
-            array_push($scorerms, $roundoneTotalmale);  
+            array_push($scorerms, $roundoneTotalmale); 
         }
 
        
@@ -380,7 +402,6 @@ class ScoreController extends Controller
             
             $score2F = score::where('candidate','=',$canf->id)->where('category','=','2')->sum('score');
             array_push($score2fs, $score2F);
-
 
             $score3F = score::where('candidate','=',$canf->id)->where('category','=','3')->sum('score');
             array_push($score3fs, $score3F);

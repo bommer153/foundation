@@ -63,7 +63,8 @@
                             @endif
 
                             @if(empty($score[$category->id-1][0]->score))
-                                @php $nscore = 0;
+                                @php 
+                                    $nscore = 0;
                                     $disable = '';
                                     $check = '0';
                                 @endphp
