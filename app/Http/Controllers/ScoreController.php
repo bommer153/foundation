@@ -9,6 +9,7 @@ use App\Models\category;
 use App\Models\round;
 use App\Models\dualVer;
 use App\Models\activerd;
+use App\Models\scoreMode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -50,16 +51,21 @@ class ScoreController extends Controller
             if($score == 0){
                 $score = 1;
             }
-//
-            //if($category == '4'){
-            //    $percent = $score * 0.15;
-            //}else if ($category == '6' && $category == '7'){
-            //    $percent = $score * 0.50;            
-            //}else{
-            //    $percent = $score * 0.20;
-            //}
+            
+            if(scoreMode::first()->mode != '0'){
+                if($category == '4'){
+                    $percent = $score * 0.15;
+                }else if ($category == '6' || $category == '7'){
+                    $percent = $score * 0.50;            
+                }else{
+                    $percent = $score * 0.20;
+                }
+            }else{
+                $percent = $score;
+            }
+           
             score::insert([
-                'score' => $score,
+                'score' => $percent,
                 'category' => $category,
                 'judge' => $judge,
                 'candidate' => $id,
