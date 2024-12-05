@@ -53,21 +53,10 @@ class ScoreController extends Controller
             }
             
             
-            if(scoreMode::first()->mode != '0'){
-                if($category == '4'){
-                    $percent = $score * 0.15;
-                }else if ($category == '6' || $category == '7'){
-                    $percent = $score * 0.50;            
-                }else{
-                    $percent = $score * 0.20;
-                }
-            }else{
-                $score = $score;
-                $percent = $score;
-            }
+            
            
             score::insert([
-                'score' => $percent,
+                'score' => $score,
                 'category' => $category,
                 'judge' => $judge,
                 'candidate' => $id,
